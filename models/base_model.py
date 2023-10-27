@@ -31,4 +31,4 @@ class BaseModel():
         """Must print: [<class name>] (<self.id>) <self.__dict__>"""
 
         #print("{} {} {}".format(self.__class__, self.id, self.__dict__))
-        return (f"{self.__class__.__name__} {self.id} {self.to_dict()}")
+        return (f"[{self.__class__.__name__}] ({self.id}) {self.to_dict()}")
