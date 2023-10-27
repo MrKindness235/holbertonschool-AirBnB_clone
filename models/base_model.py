@@ -6,11 +6,14 @@ from datetime import datetime
 from uuid import uuid4
 
 class BaseModel():
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializes the instance."""
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if kwargs:
+            
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def save(self):
         """Updates the updated."""
@@ -30,5 +33,4 @@ class BaseModel():
     def __str__(self):
         """Must print: [<class name>] (<self.id>) <self.__dict__>"""
 
-        #print("{} {} {}".format(self.__class__, self.id, self.__dict__))
         return (f"[{self.__class__.__name__}] ({self.id}) {self.to_dict()}")
