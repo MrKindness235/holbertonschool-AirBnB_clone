@@ -2,7 +2,7 @@
 """A base model for the AirB&B console."""
 
 
-import sys
+from models import storage
 from datetime import datetime
 from uuid import uuid4
 
@@ -17,6 +17,7 @@ class BaseModel():
                 if keys != "__class__":
                     self.__dict__[keys] = value        
         else:
+            storage.new(self)
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
@@ -25,6 +26,7 @@ class BaseModel():
         """Updates the updated."""
 
         self.updated_at = datetime.now()
+        storage.save(self)
 
     def to_dict(self):
         """Returns keys/values of __dict__."""
