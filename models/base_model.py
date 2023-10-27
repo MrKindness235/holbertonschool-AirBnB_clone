@@ -11,7 +11,7 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """Initializes the instance."""
         if kwargs:
-            for keys, value in kwargs.items:
+            for keys, value in kwargs.items():
                 if keys == "created_at" or keys == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if keys != "__class__":
